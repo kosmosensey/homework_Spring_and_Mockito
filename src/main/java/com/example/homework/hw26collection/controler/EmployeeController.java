@@ -1,8 +1,11 @@
-package com.example.hw26collection.controler;
+package com.example.homework.hw26collection.controler;
 
-import com.example.hw26collection.model.Employee;
-import com.example.hw26collection.service.EmployeeService;
-import org.springframework.web.bind.annotation.*;
+import com.example.homework.hw26collection.model.Employee;
+import com.example.homework.hw26collection.service.EmployeeService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 

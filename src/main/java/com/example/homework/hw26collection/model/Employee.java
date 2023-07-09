@@ -1,4 +1,4 @@
-package com.example.hw26collection.model;
+package com.example.homework.hw26collection.model;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -49,9 +49,6 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
 
     @Override
     public boolean equals(Object o) {
