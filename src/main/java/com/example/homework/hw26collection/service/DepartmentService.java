@@ -1,7 +1,7 @@
-package com.example.hw26collection.service;
+package com.example.homework.hw26collection.service;
 
-import com.example.hw26collection.exception.EmployeeNotFoundException;
-import com.example.hw26collection.model.Employee;
+import com.example.homework.hw26collection.exception.EmployeeNotFoundException;
+import com.example.homework.hw26collection.model.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -18,18 +18,27 @@ public class DepartmentService {
         this.employeeService = employeeService;
     }
 
-    public Employee getMaxSalByDepartment(Integer idDep) {
+    public double getMaxSalByDepartment(int idDep) {
         return employeeService.getAll().stream()
                 .filter(employee -> employee.getDepartment() == idDep)
-                .max(Comparator.comparing(Employee::getSalary))
+                .max(Comparator.comparingDouble(Employee::getSalary))
+                .map(Employee::getSalary)
                 .orElseThrow(() -> new EmployeeNotFoundException("Сотрудник не найден"));
     }
 
-    public Employee getMinSalByDepartment(Integer idDep) {
+    public double getMinSalByDepartment(int idDep) {
         return employeeService.getAll().stream()
                 .filter(employee -> employee.getDepartment() == idDep)
-                .min(Comparator.comparing(Employee::getSalary))
+                .min(Comparator.comparingDouble(Employee::getSalary))
+                .map(Employee::getSalary)
                 .orElseThrow(() -> new EmployeeNotFoundException("Сотрудник не найден"));
+    }
+
+    public double getSumOfSalariesByDepartment(int idDep) {
+        return employeeService.getAll().stream()
+                .filter(e -> e.getDepartment() == idDep)
+                .mapToDouble(Employee::getSalary)
+                .sum();
     }
 
     public List<Employee> getAll(int idDep){

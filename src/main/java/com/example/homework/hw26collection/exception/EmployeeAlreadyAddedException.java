@@ -1,4 +1,4 @@
-package com.example.hw26collection.exception;
+package com.example.homework.hw26collection.exception;
 
 
 public class EmployeeAlreadyAddedException extends RuntimeException{
